@@ -1,0 +1,91 @@
+import {
+  Zap,
+  Wrench,
+  Snowflake,
+  Hammer,
+  Brush,
+  BookOpen,
+  Scissors,
+  Home,
+  Settings,
+  Award,
+  Users,
+  Lightbulb,
+  Briefcase,
+  Heart,
+  Bug,
+  Droplets,
+  Scale,
+  Calculator,
+  Building,
+  School,
+  Laptop,
+  Sparkles,
+  Flower,
+  Stethoscope,
+  Dumbbell,
+  HeartPulse,
+  Apple,
+  Camera,
+  Video,
+  Calendar,
+  Music,
+  Smartphone,
+  Cpu,
+  Shield,
+  Truck,
+  Package
+} from "lucide-react";
+
+import profilePicture from '../../public/images/profile.webp';
+import official_logo from '../../public/images/service-markaz-logo.png';
+import footer_logo from '../../public/images/footer-logo.png';
+import meta_img from '../../public/images/meta-img.webp';
+import fave_icon from '../../public/images/fav-icon.png';
+
+export const images = {
+  profile_picture: profilePicture,
+  official_logo: official_logo,
+  footer_logo: footer_logo,
+  meta_image: meta_img,
+  favicon: fave_icon
+}
+
+export const ICON_MAP = {
+  Zap,
+  Wrench,
+  Snowflake,
+  Hammer,
+  Brush,
+  BookOpen,
+  Scissors,
+  Home,
+  Settings,
+  Award,
+  Users,
+  Lightbulb,
+  Briefcase,
+  Heart,
+  Bug,
+  Droplets,
+  Scale,
+  Calculator,
+  Building,
+  School,
+  Laptop,
+  Sparkles,
+  Flower,
+  Stethoscope,
+  Dumbbell,
+  HeartPulse,
+  Apple,
+  Camera,
+  Video,
+  Calendar,
+  Music,
+  Smartphone,
+  Cpu,
+  Shield,
+  Truck,
+  Package
+};
