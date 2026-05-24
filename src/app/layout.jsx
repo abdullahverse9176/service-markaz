@@ -64,6 +64,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <meta name="google-site-verification" content="ZKhTFNmct_HmZLdf2OxQobwtIFMuYeNh4eTKOnFqIwg" />
+      </head>
       <body className="min-h-full flex flex-col bg-gray-50">
         <Providers>
           {children}
