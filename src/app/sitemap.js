@@ -118,29 +118,6 @@ export default async function sitemap() {
       }
     }
 
-    // ── Near-me + How-to-hire pages ───────────────────────────────────────
-    urls.push({
-      url: `${BASE_URL}/services/near-me`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    });
-
-    categories.forEach((cat) => {
-      urls.push({
-        url: `${BASE_URL}/services/near-me/${cat.slug}`,
-        lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.7,
-      });
-      urls.push({
-        url: `${BASE_URL}/how-to-hire/${cat.slug}`,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.6,
-      });
-    });
-
     // ── Blog posts ────────────────────────────────────────────────────────
     blogs.forEach((b) => {
       urls.push({
