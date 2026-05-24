@@ -57,8 +57,7 @@ export async function generateMetadata({ params }) {
 const CategoryPage = async ({ params }) => {
   const { category } = await params;
   const settings = await getSiteSettings();
-  const cities = await getCities();
-
+  
   const categoryObj = categories.find((cat) => cat.slug === category);
 
   if (!categoryObj) {
@@ -76,6 +75,17 @@ const CategoryPage = async ({ params }) => {
         </div>
       </div>
     );
+  }
+
+  // Fetch cities with error handling
+  let cities = [];
+  let hasError = false;
+  
+  try {
+    cities = await getCities();
+  } catch (error) {
+    console.error('Error fetching cities:', error);
+    hasError = true;
   }
 
   const Icon = categoryObj.icon;
@@ -147,7 +157,7 @@ const CategoryPage = async ({ params }) => {
               <div className="flex flex-wrap justify-center sm:justify-start gap-2.5 sm:gap-3 mt-6 sm:mt-8">
                 <div className="flex items-center gap-2 bg-black/10 hover:bg-black/20 transition-colors backdrop-blur-md rounded-xl px-4 py-2 border border-white/10">
                   <MapPin size={16} className="text-emerald-200" /> 
-                  <span className="text-sm font-medium">{isLoading ? "..." : cities.length} Cities</span>
+                  <span className="text-sm font-medium">{cities.length}+ Cities</span>
                 </div>
                 <div className="flex items-center gap-2 bg-black/10 hover:bg-black/20 transition-colors backdrop-blur-md rounded-xl px-4 py-2 border border-white/10">
                   <CheckCircle size={16} className="text-emerald-200" /> 
@@ -173,25 +183,17 @@ const CategoryPage = async ({ params }) => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
-          {isLoading && (
+          {hasError && (
             <div className="col-span-full text-center py-12">
-              <p className="text-gray-600">Loading cities...</p>
+              <p className="text-red-600">Failed to load cities. Please try again later.</p>
             </div>
           )}
 
-          {error && (
-            <div className="col-span-full text-center py-12">
-              <p className="text-red-600">Failed to load cities</p>
-            </div>
-          )}
-
-          {!isLoading && !error && cities.length > 0 && cities.map((city) => (
-
+          {!hasError && cities.length > 0 && cities.map((city) => (
             <CitiesCard key={city.slug} city={city} categoryObj={categoryObj} />
-
           ))}
 
-          {!isLoading && !error && cities.length === 0 && (
+          {!hasError && cities.length === 0 && (
             <div className="col-span-full text-center py-12">
               <p className="text-gray-500">No cities available at the moment</p>
             </div>
