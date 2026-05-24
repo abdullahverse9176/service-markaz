@@ -34,6 +34,6 @@ export default async function robots() {
       },
     ],
     sitemap: `${settings.siteUrl}sitemap.xml`,
-    host: settings.siteUrl,
+    // host: settings.siteUrl,
   };
 }
