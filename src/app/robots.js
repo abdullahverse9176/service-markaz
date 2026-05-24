@@ -33,7 +33,7 @@ export default async function robots() {
         disallow: [],
       },
     ],
-    sitemap: `${settings.siteUrl}/sitemap.xml`,
+    sitemap: `${settings.siteUrl}sitemap.xml`,
     host: settings.siteUrl,
   };
 }
